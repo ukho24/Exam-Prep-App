@@ -19,7 +19,7 @@ const { dataProvider, authProvider } = await createTrailbaseProvider(
 function App() {
     return (
 
-        <Admin loginPage={LoginPage} dataProvider={dataProvider} authProvider={authProvider} >
+        <Admin loginPage={LoginPage} dataProvider={dataProvider} >
             {/*  authProvider={authProvider} */}
 
             <Resource name="USERS" list={UsersList} />
