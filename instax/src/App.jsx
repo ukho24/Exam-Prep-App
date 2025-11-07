@@ -1,4 +1,4 @@
-import { Admin, CustomRoutes, Resource, Layout } from "react-admin";
+import { Admin, CustomRoutes, Resource, Layout, AppBar } from "react-admin";
 import { Route } from "react-router-dom";
 import { createTrailbaseProvider } from "./ra-trailbase";
 import { CreateUser, LoginPage } from "./create_user";
@@ -15,7 +15,9 @@ import { RoleList } from "./components/users/roles";
 // Custom routes imports
 import { HomePage } from "./pages/Home"
 import { MyMenu } from "./MyMenu"
+import { Dashboard } from "./pages/Dashboard"
 
+// Calling dataProvider and authProvider
 const TRAILBASE_URL = "https://scaling-happiness-v6gjrvgr7vg9fx97v-4000.app.github.dev/";
 const { dataProvider, authProvider } = await createTrailbaseProvider(
     TRAILBASE_URL,
@@ -23,16 +25,17 @@ const { dataProvider, authProvider } = await createTrailbaseProvider(
 
 // Layout
 const MyLayout = ({ children }) => (
-    <Layout menu={MyMenu}>
+    <Layout menu={MyMenu}> 
         {children}
     </Layout>
 );
+
 
 // App
 function App() {
     return (
 
-        <Admin loginPage={LoginPage} dataProvider={dataProvider} layout={MyLayout} >
+        <Admin loginPage={LoginPage} dataProvider={dataProvider} layout={MyLayout} dashboard={Dashboard}>
             {/*  authProvider={authProvider} */}
 
             <Resource name="USERS" list={UsersList} />
@@ -41,9 +44,9 @@ function App() {
             <Resource name="COMMENTS" list={CommentList} />
             <Resource name="LIKES" list={LikeList} />
 
-            <CustomRoutes noLayout>
+            <CustomRoutes>
                 <Route path="/create-user" element={<CreateUser />} />
-                <Route path="/" element={<HomePage />} />
+                <Route path="/landing" element={<HomePage />} />
             </CustomRoutes>
         </Admin>
 
