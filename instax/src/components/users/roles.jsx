@@ -1,4 +1,4 @@
-import { List, DataTable, DateField, BooleanField } from 'react-admin';
+import { List, DataTable, TextField, NumberField } from 'react-admin';
 
 export const RoleList = () => (
     <List>
@@ -7,4 +7,13 @@ export const RoleList = () => (
             <DataTable.Col source="name" />
         </DataTable>
     </List>
+);
+
+export const ShowRoles = () => (
+    <Show>
+        <SimpleShowLayout>
+            <NumberField source="id" />
+            <TextField source="name" />
+        </SimpleShowLayout>
+    </Show>
 );

@@ -5,11 +5,25 @@ import { CreateUser, LoginPage } from "./create_user";
 
 
 // Components, import named exports
+// Posts
 import { PostList } from "./components/posts/posts"
+import { ShowPost } from "./components/posts/ShowPost";
+
+// Users
 import { UsersList } from "./components/users/users";
+import { ShowUser } from "./components/users/ShowUser"
+
+// Comments
 import { CommentList } from "./components/comments/comments";
+import { ShowComments } from "./components/comments/ShowComments";
+
+// Likes
 import { LikeList } from "./components/likes/likes";
+import { ShowLikes } from "./components/likes/ShowLikes";
+
+// Roles
 import { RoleList } from "./components/users/roles";
+import { ShowRoles } from "./components/users/roles";
 
 
 // Custom routes imports
@@ -38,11 +52,11 @@ function App() {
         <Admin loginPage={LoginPage} dataProvider={dataProvider} layout={MyLayout} dashboard={Dashboard}>
             {/*  authProvider={authProvider} */}
 
-            <Resource name="USERS" list={UsersList} />
-            <Resource name="ROLES" list={RoleList} />
-            <Resource name="POSTS" list={PostList} />
-            <Resource name="COMMENTS" list={CommentList} />
-            <Resource name="LIKES" list={LikeList} />
+            <Resource name="USERS" list={UsersList} show={ShowUser} />
+            <Resource name="ROLES" list={RoleList} show={ShowRoles} />
+            <Resource name="POSTS" list={PostList} show={ShowPost}/>
+            <Resource name="COMMENTS" list={CommentList} show={ShowComments}/>
+            <Resource name="LIKES" list={LikeList} show={ShowLikes}/>
 
             <CustomRoutes>
                 <Route path="/create-user" element={<CreateUser />} />
