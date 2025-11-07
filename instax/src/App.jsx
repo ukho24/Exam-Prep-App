@@ -51,7 +51,7 @@ const MyLayout = ({ children }) => (
 function App() {
     return (
 
-        <Admin loginPage={LoginPage} dataProvider={dataProvider} layout={MyLayout} dashboard={Dashboard}>
+        <Admin loginPage={LoginPage} dataProvider={dataProvider} layout={MyLayout} dashboard={Dashboard} authProvider={authProvider}>
             {/*  authProvider={authProvider} */}
 
             <Resource name="USERS" list={UsersList} show={ShowUser} />
