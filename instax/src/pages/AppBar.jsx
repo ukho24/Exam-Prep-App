@@ -1,3 +1,5 @@
-import {AppBar} from "react-admin"
+import { AppBar } from "react-admin"
 
-export const MyAppBar = () => <AppBar color="primary" position="sticky" />;
+export const MyAppBar = () =>
+    <AppBar
+        sx={{ backgroundColor: "#faddfeff"}} />;

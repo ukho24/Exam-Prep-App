@@ -35,6 +35,8 @@ import { ShowRoles } from "./components/users/roles";
 import { HomePage } from "./pages/Home"
 import { MyMenu } from "./MyMenu"
 import { Dashboard } from "./pages/Dashboard"
+import { MyAppBar } from "./pages/AppBar";
+import { Children } from "react";
 
 
 
@@ -45,8 +47,8 @@ const { dataProvider, authProvider } = await createTrailbaseProvider(
 );
 
 // Layout
-const MyLayout = ({ children }) => (
-    <Layout menu={MyMenu}> 
+const MyLayout = ({children}) => (
+    <Layout menu={MyMenu} appBar={MyAppBar}>
         {children}
     </Layout>
 );
@@ -62,7 +64,7 @@ function App() {
             <Resource name="USERS" list={UsersList} show={ShowUser} edit={EditUser} />
             <Resource name="ROLES" list={RoleList} show={ShowRoles} />
             <Resource name="POSTS" list={PostList} show={ShowPost} edit={EditPost} create={PostCreate} />
-            <Resource name="COMMENTS" list={CommentList} show={ShowComments} edit={EditComment}/>
+            <Resource name="COMMENTS" list={CommentList} show={ShowComments} edit={EditComment} />
             <Resource name="LIKES" list={LikeList} show={ShowLikes}/>
 
             <CustomRoutes>
