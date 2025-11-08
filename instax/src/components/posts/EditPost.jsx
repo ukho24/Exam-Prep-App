@@ -6,9 +6,9 @@ export const EditPost = () => (
             <NumberInput source="user_id" />
             <TextInput source="title" />
             <TextInput source="content" />
-            <BooleanInput source="published" /> 
+            {/* <BooleanInput source="published" />  */}
             {/* Should be boolean check */}
-            <DateInput source="created_at" defaultValue={new Date ()} disabled />
+            <DateInput source="created_at" defaultValue={new Date ()}  />
         </SimpleForm>
     </Edit>
 );

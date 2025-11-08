@@ -1,13 +1,16 @@
-import { InfiniteList, DataTable, DateField, BooleanField } from 'react-admin';
+import { InfiniteList, DataTable, DateField, ReferenceField, TextField, ReferenceManyCount, Datagrid, NumberInput, TextInput, DateTimeInput, NumberField } from 'react-admin';
 
 export const CommentList = () => (
     <InfiniteList>
-        <DataTable>
+        <Datagrid>
             {/* <DataTable.Col source="id" /> */}
-            <DataTable.Col source="post_id" />
-            <DataTable.Col source="user_id"  />
-            <DataTable.Col source="content" />
-            <DataTable.Col source="created_at" field={DateField}/>
-        </DataTable>
+            <NumberField source="post_id" />
+            <ReferenceField reference='USERS' source="user_id">
+                <TextField source="username"/>
+                </ReferenceField>
+            <TextField source="content" />
+            <DateField source="created_at" field={DateField}/>
+            <ReferenceManyCount reference='REPLY' target='comment_id' label='Reply' />
+        </Datagrid>
     </InfiniteList>
 );
