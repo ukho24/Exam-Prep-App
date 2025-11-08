@@ -5,24 +5,28 @@ import { CreateUser, LoginPage } from "./create_user";
 
 
 // Components, import named exports
-// Posts - list , show, create & del
+// POSTS - list , show, create & del
 import { PostList } from "./components/posts/posts"
 import { ShowPost } from "./components/posts/ShowPost";
 import { PostCreate } from "./components/posts/CreatePost";
+import { EditPost } from "./components/posts/EditPost";
 
-// Users - list, show & delete 
-import { UsersList } from "./components/users/users";
-import { ShowUser } from "./components/users/ShowUser"
 
-// Comments - list, show, create, delete
+// USERS - list, show, update & delete 
+import { UsersList } from "./components/users/ListUser";
+import { ShowUser } from "./components/users/ShowUser";
+import { EditUser } from "./components/users/EditUser";
+
+// COMMENTS - list, show, create, update & delete
 import { CommentList } from "./components/comments/comments";
 import { ShowComments } from "./components/comments/ShowComments";
+import { EditComment } from "./components/comments/EditComment";
 
-// Likes - list, show, create & delete
+// LIKES - list, show, create & delete
 import { LikeList } from "./components/likes/likes";
 import { ShowLikes } from "./components/likes/ShowLikes";
 
-// Roles - list
+// ROLES - list
 import { RoleList } from "./components/users/roles";
 import { ShowRoles } from "./components/users/roles";
 
@@ -31,6 +35,7 @@ import { ShowRoles } from "./components/users/roles";
 import { HomePage } from "./pages/Home"
 import { MyMenu } from "./MyMenu"
 import { Dashboard } from "./pages/Dashboard"
+
 
 
 // Calling dataProvider and authProvider
@@ -54,10 +59,10 @@ function App() {
         <Admin loginPage={LoginPage} dataProvider={dataProvider} layout={MyLayout} dashboard={Dashboard} authProvider={authProvider}>
             {/*  authProvider={authProvider} */}
 
-            <Resource name="USERS" list={UsersList} show={ShowUser} />
+            <Resource name="USERS" list={UsersList} show={ShowUser} edit={EditUser} />
             <Resource name="ROLES" list={RoleList} show={ShowRoles} />
-            <Resource name="POSTS" list={PostList} show={ShowPost} create={PostCreate}/>
-            <Resource name="COMMENTS" list={CommentList} show={ShowComments}/>
+            <Resource name="POSTS" list={PostList} show={ShowPost} edit={EditPost} create={PostCreate} />
+            <Resource name="COMMENTS" list={CommentList} show={ShowComments} edit={EditComment}/>
             <Resource name="LIKES" list={LikeList} show={ShowLikes}/>
 
             <CustomRoutes>

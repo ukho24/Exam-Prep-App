@@ -6,6 +6,7 @@ import {
     TextInput,
     useNotify,
     useRedirect,
+    SelectInput
 } from "react-admin";
 import { Argon2id } from "./argon2id";
 import { Link as RouterLink } from "react-router-dom";
@@ -19,10 +20,10 @@ export const CreateUser = () => {
         // Users are created with a trigger that deletes the transition record,
         // so a 404 actually implies that the user is created successfully.
         if (error.status == 404) {
-            notify("User Created Successfully", { type: "success" });
+            notify("Account Successfully", { type: "success" });
             redirect("/login");
         } else {
-            notify("Could Not Create User", { type: "error" });
+            notify("Could Not Create Account", { type: "error" });
         }
     };
 
@@ -45,6 +46,11 @@ export const CreateUser = () => {
                     <SimpleForm>
                         <TextInput source="email" />
                         <TextInput source="password" />
+                        <SelectInput source="role" choices={[
+                                { id: "visitor", name: "Visitor" },
+                                { id: "author", name: "Author" },
+                                { id: "admin", name: "Admin" }
+                            ]} />
                     </SimpleForm>
                 </CreateBase>
             </Box>

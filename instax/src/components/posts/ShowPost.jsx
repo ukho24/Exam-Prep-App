@@ -1,4 +1,4 @@
-import { Show, SimpleShowLayout, TextField, DateField, ImageField, NumberField } from 'react-admin';
+import { Show, SimpleShowLayout, TextField, DateField, ImageField, NumberField, BooleanField } from 'react-admin';
 
 export const ShowPost = () => (
     <Show>
@@ -7,7 +7,7 @@ export const ShowPost = () => (
             <TextField source="user_id" />
             <TextField source="title" />
             <TextField source="content" />
-            <DateField source="published" />
+            <BooleanField source="published" />
             <DateField source="created_at" />
         </SimpleShowLayout>
     </Show>
