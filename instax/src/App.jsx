@@ -1,4 +1,4 @@
-import { Admin, CustomRoutes, Resource, Layout, AppBar } from "react-admin";
+import { Admin, CustomRoutes, Resource, Layout, AppBar, ListGuesser } from "react-admin";
 import { Route } from "react-router-dom";
 import { createTrailbaseProvider } from "./ra-trailbase";
 import { CreateUser, LoginPage } from "./create_user";
@@ -6,7 +6,7 @@ import { CreateUser, LoginPage } from "./create_user";
 
 // Components, import named exports
 // POSTS - list , show, create & del
-import { PostList } from "./components/posts/posts"
+import { PostList } from "./components/posts/ListPost"
 import { ShowPost } from "./components/posts/ShowPost";
 import { PostCreate } from "./components/posts/CreatePost";
 import { EditPost } from "./components/posts/EditPost";
@@ -21,6 +21,9 @@ import { EditUser } from "./components/users/EditUser";
 import { CommentList } from "./components/comments/comments";
 import { ShowComments } from "./components/comments/ShowComments";
 import { EditComment } from "./components/comments/EditComment";
+
+        // REPLIES
+        import { ListReply } from "./components/comments/Replies/ListReply";
 
 // LIKES - list, show, create & delete
 import { LikeList } from "./components/likes/likes";
@@ -37,6 +40,7 @@ import { MyMenu } from "./MyMenu"
 import { Dashboard } from "./pages/Dashboard"
 import { MyAppBar } from "./pages/AppBar";
 import { Children } from "react";
+
 
 
 
@@ -65,6 +69,8 @@ function App() {
             <Resource name="ROLES" list={RoleList} show={ShowRoles} />
             <Resource name="POSTS" list={PostList} show={ShowPost} edit={EditPost} create={PostCreate} />
             <Resource name="COMMENTS" list={CommentList} show={ShowComments} edit={EditComment} />
+            <Resource name="REPLY" list={ListReply} />
+
             <Resource name="LIKES" list={LikeList} show={ShowLikes}/>
 
             <CustomRoutes>

@@ -11,3 +11,4 @@ export const ShowComments = () => (
         </SimpleShowLayout>
     </Show>
 );
+
