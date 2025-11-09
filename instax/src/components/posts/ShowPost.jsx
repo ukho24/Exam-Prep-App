@@ -9,18 +9,22 @@ export const ShowPost = () => (
                 <TextField source="username" />
             </ReferenceField>
             <TextField source="title" />
-            <TextField source="content" />
+            <TextField source="post" />
             <BooleanField source="published" valueLabelTrue="Yes" valuelabelFalse="No" />
             <DateField source="created_at" />
+
+
             {/* Show number of likes */}
-            <ReferenceManyCount reference='LIKES' target='post_id' label="Likes" link />
+            <ReferenceManyCount reference='LIKES' target='post_id' label="Likes"  />
+
+
             {/* Show for comments linked to post */}
             {/* Datatable for comments */}
             <ReferenceManyField reference="COMMENTS" target="post_id" label="Comments">
                
                 <DataTable>
                        {/* calling the Comments */}
-                    <DataTable.Col source="content" label="Comment">
+                    <DataTable.Col source="comment" label="Comment">
                         
                     </DataTable.Col>
 
@@ -28,13 +32,6 @@ export const ShowPost = () => (
                     <DataTable.Col label="Accounts">
                         <ReferenceField reference='USERS' source="id" >
                             <TextField source='username' />
-                        </ReferenceField>
-                    </DataTable.Col>
-                 
-
-                    <DataTable.Col label="Replies">
-                        <ReferenceField source='comment_id' reference='REPLY'>
-                            <TextField source="reply" />
                         </ReferenceField>
                     </DataTable.Col>
                 </DataTable>

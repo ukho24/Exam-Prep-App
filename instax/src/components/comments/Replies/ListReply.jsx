@@ -5,12 +5,12 @@ export const ListReply = () => (
         <Datagrid>
             {/* <DataTable.Col source="id" /> */}
             <ReferenceField reference='COMMENTS' source='comment_id' link={false} label="Comment">
-                <TextField source="content"/>
+                <TextField source="comment"/>
             </ReferenceField>
             <ReferenceField reference='USERS' source='user_id' link={false} label="Account">
                 <TextField source="username"/>
             </ReferenceField>
             <TextField source="reply" />
         </Datagrid>
-    </InfiniteList>
+    </InfiniteList> 
 );

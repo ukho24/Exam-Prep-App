@@ -3,19 +3,22 @@ import { Show, SimpleShowLayout, TextField, DateField, NumberField, ReferenceMan
 export const ShowComments = () => (
     <Show>
         <SimpleShowLayout>
-            <NumberField source="id" />
+            {/* <NumberField source="id" /> */}
             <NumberField source="post_id" />
-            <NumberField source="user_id" />
-            <TextField source="content" />
+            <ReferenceField source='user_id' reference='USERS'>
+                <TextField source="username" />
+            </ReferenceField>
+            <TextField source="comment" />
             <DateField source="created_at" />
             <ReferenceManyField reference="REPLY" target="comment_id" label="Replies">
                 <DataTable>
-                    <DataTable.Col label='Account'>
-                        <ReferenceField reference='USERS' source='user_id'>
-                            <TextField source='username'></TextField>
-                        </ReferenceField>
+                    {/* For replies */}
+                    <DataTable.Col source="reply" reference="REPLY" />
+
+                    {/* To show the users that replied */}
+                    <DataTable.Col source="user_id" reference="USERS">
+                        <ReferenceField source='id' reference='USERS'> <TextField source='username' /> </ReferenceField>
                     </DataTable.Col>
-                    <DataTable.Col source="reply" />
                 </DataTable>
             </ReferenceManyField>
         </SimpleShowLayout>

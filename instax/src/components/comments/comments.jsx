@@ -8,9 +8,9 @@ export const CommentList = () => (
             <ReferenceField reference='USERS' source="user_id">
                 <TextField source="username"/>
                 </ReferenceField>
-            <TextField source="content" />
+            <TextField source="comment" />
             <DateField source="created_at" field={DateField}/>
             <ReferenceManyCount reference='REPLY' target='comment_id' label='Reply' />
         </Datagrid>
-    </InfiniteList>
+    </InfiniteList> 
 );

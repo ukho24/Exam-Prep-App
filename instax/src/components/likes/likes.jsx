@@ -8,5 +8,5 @@ export const LikeList = () => (
             <DataTable.Col source="user_id"  />
             <DataTable.Col source="created_at" field={DateField}/>
         </DataTable>
-    </InfiniteList>
+    </InfiniteList> 
 );

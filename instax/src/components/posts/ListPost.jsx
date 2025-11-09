@@ -15,12 +15,12 @@ export const PostList = () => (
                 <TextField source="username" />
             </ReferenceField>
             <TextField source="title" />
-            <TextField source="content" />
+            <TextField source="post" />
             {/* <BooleanField source="published" valueLabelTrue="Yes" valuelabelFalse="No"/> */}
             <DateField source="created_at" />
             <ReferenceManyCount reference='LIKES' target='post_id' label='Likes' />
             <ReferenceManyCount reference='COMMENTS' target='post_id' label='Comments' />
         </Datagrid>
-    </InfiniteList>
+    </InfiniteList> 
 );
 
