@@ -1,11 +1,14 @@
-import { List, DataTable, TextField, NumberField } from 'react-admin';
+import { Show, List, SimpleShowLayout, Datagrid, TextField, NumberField, ReferenceField } from 'react-admin';
 
-export const RoleList = () => (
+export const UserRoleList = () => (
     <List>
-        <DataTable>
-            <DataTable.Col source="id" />
-            <DataTable.Col source="name" />
-        </DataTable>
+        <Datagrid>
+            <NumberField source="id" />
+            <TextField source="role" />
+            <ReferenceField source="id" reference='USERS'>
+                <TextField source='username' />
+            </ReferenceField>
+        </Datagrid>
     </List>
 );
 
@@ -13,7 +16,10 @@ export const ShowRoles = () => (
     <Show>
         <SimpleShowLayout>
             <NumberField source="id" />
-            <TextField source="name" />
+            <TextField source="role" />
+            <ReferenceField source="id" reference='USERS'>
+                <TextField source='username' />
+            </ReferenceField>
         </SimpleShowLayout>
     </Show>
 );

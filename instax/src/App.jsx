@@ -30,7 +30,7 @@ import { LikeList } from "./components/likes/likes";
 import { ShowLikes } from "./components/likes/ShowLikes";
 
 // ROLES - list
-import { RoleList } from "./components/users/roles";
+import { UserRoleList } from "./components/users/roles";
 import { ShowRoles } from "./components/users/roles";
 
 
@@ -66,7 +66,7 @@ function App() {
             {/*  authProvider={authProvider} */}
 
             <Resource name="USERS" list={UsersList} show={ShowUser} edit={EditUser} />
-            <Resource name="ROLES" list={RoleList} show={ShowRoles} />
+            <Resource name="USER_ROLE" list={UserRoleList} show={ShowRoles} />
             <Resource name="POSTS" list={PostList} show={ShowPost} edit={EditPost} create={PostCreate} />
             <Resource name="COMMENTS" list={CommentList} show={ShowComments} edit={EditComment} />
             <Resource name="REPLY" list={ListReply} />

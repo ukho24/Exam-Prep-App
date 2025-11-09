@@ -1,4 +1,4 @@
-import { BooleanInput, DateInput, Edit, NumberInput, SimpleForm, TextInput } from 'react-admin';
+import { BooleanInput, DateInput, Edit, NumberInput, SimpleForm, TextInput, CanAccess, SelectInput } from 'react-admin';
 
 export const EditPost = () => (
     <Edit>
